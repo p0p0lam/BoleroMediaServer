@@ -1,0 +1,38 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'ua.com.audioreklama'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.ldap:spring-ldap-core")
+	compile('eu.agno3.jcifs:jcifs-ng:2.1.0')
+	/*compile('org.springframework.boot:spring-boot-starter-integration')
+	compile("org.springframework.integration:spring-integration-file")
+	compile("org.springframework.integration:spring-integration-smb:1.0.0.RELEASE")*/
+	compile("org.springframework.security:spring-security-ldap")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.security:spring-security-test')
+}
